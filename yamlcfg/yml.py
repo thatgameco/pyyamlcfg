@@ -64,7 +64,7 @@ class YAMLConfig(Config):
 
     def parse_path(self, path):
         with open(path) as f:
-            self._data.update(yaml.load(f))
+            self._data.update(yaml.load(f, Loader=yaml.FullLoader))
 
     def permuted_paths(self, path):
         fname, ext = os.path.splitext(path)
